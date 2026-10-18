@@ -250,8 +250,8 @@ main > section { padding: var(--section) var(--edge) 0; }
 
 /* ---------- Setup in 3 steps ---------- */
 .setup__head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 40px; margin-bottom: 28px; padding: 0 14px; }
-.setup__head h2 { font-size: var(--step-head); max-width: 15ch; }
-.setup__head p { font-size: var(--step-body); max-width: 40ch; }
+.setup__head h2 { font-size: var(--step-head); max-width: 22ch; }
+.setup__head .num { color: var(--accent); }
 .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); }
 .step { display: grid; align-content: start; gap: 10px; }
 .step__art { display: grid; place-items: center; height: 280px; padding: 24px; border-radius: var(--radius); overflow: hidden; }

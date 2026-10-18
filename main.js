@@ -27,8 +27,13 @@ const showTip = (btn) => {
   const host = blocks.parentElement.getBoundingClientRect();
   const r = btn.getBoundingClientRect();
   const w = tip.offsetWidth;
-  const left = Math.min(Math.max(r.left - host.left + r.width / 2 - w / 2, 8), host.width - w - 8);
-  const top = Math.max(r.top - host.top - tip.offsetHeight - 10, 8);
+  const center = r.left - host.left + r.width / 2 - w / 2;
+  // A logo in the top bar has no room above it, so its messages open below and may spill past the tile.
+  const below = blocks.dataset.tipSide === 'below';
+  const left = below
+    ? Math.min(Math.max(center, 8 - host.left), document.documentElement.clientWidth - host.left - w - 8)
+    : Math.min(Math.max(center, 8), host.width - w - 8);
+  const top = below ? r.bottom - host.top + 10 : Math.max(r.top - host.top - tip.offsetHeight - 10, 8);
   tip.style.transform = `translate(${left}px, ${top}px)`;
   btn.setAttribute('aria-describedby', 'tip-text');
 };
@@ -53,7 +58,8 @@ if (blocks && tip) {
   tip.addEventListener('mouseleave', () => hideTip());
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideTip(0); });
   // Uma mensagem aparece sozinha depois que as barras sobem, para mostrar que as colunas respondem
-  setTimeout(() => { if (!tipFor) { showTip(blocks.querySelectorAll('button')[3]); hideTip(3200); } }, reduced ? 400 : 1700);
+  const covers = blocks.dataset.tipSide === 'below' && window.matchMedia('(max-width: 760px)').matches;
+  if (!covers) setTimeout(() => { if (!tipFor) { showTip(blocks.querySelectorAll('button')[3]); hideTip(3200); } }, reduced ? 400 : 1700);
 }
 
 /* ---------- Subtitle: the highlighted word cycles through what Hypermonitor watches ---------- */
