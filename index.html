@@ -255,16 +255,7 @@
   <div class="close__main">
     <h2 id="start-title" data-i18n="close.title">Start using Hypermonitor</h2>
     <p data-i18n="close.sub">We are opening Hypermonitor to a small group of teams first, free, in exchange for honest feedback.</p>
-    <!-- Netlify Forms only keeps the fields declared here at deploy time, so the hidden ones must stay in the markup. -->
-    <form class="field" id="start-form" name="early-access" action="/" method="post" data-netlify="true" netlify-honeypot="_gotcha">
-      <input type="hidden" name="form-name" value="early-access">
-      <input type="hidden" name="language">
-      <input type="hidden" name="utm_source">
-      <input type="hidden" name="utm_medium">
-      <input type="hidden" name="utm_campaign">
-      <input type="hidden" name="utm_content">
-      <input type="hidden" name="ref">
-      <input type="hidden" name="referrer">
+    <form class="field" id="start-form" action="https://formspree.io/f/mrpedlnw" method="post">
       <label class="sr-only" for="start-email" data-i18n="close.email">Work email</label>
       <input id="start-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com…" spellcheck="false" data-i18n-attr="placeholder:close.placeholder">
       <input class="sr-only" name="_gotcha" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">

@@ -231,8 +231,8 @@ renderRuns();
 renderPane();
 
 /* ---------- Early access ---------- */
-// Netlify Forms takes the urlencoded POST to the form's action. A mailto action opens the visitor's email app
-// instead, and the error message keeps a mailto link as the way out.
+// Formspree takes the urlencoded POST to the form's action and answers JSON when asked. A mailto action opens
+// the visitor's email app instead, and the error message keeps a mailto link as the way out.
 const form = document.getElementById('start-form');
 if (form) {
   const after = document.getElementById('start-after');
@@ -251,17 +251,15 @@ if (form) {
     e.preventDefault();
     if (form._gotcha.value) return;
     if (form.getAttribute('action').startsWith('mailto:')) { openMail(); say('close.sent'); return; }
+    const data = new URLSearchParams({ email: form.email.value.trim(), language: I18N.lang, _subject: t('close.subject') });
     const query = new URLSearchParams(location.search);
-    form.language.value = I18N.lang;
-    for (const k of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'ref']) form[k].value = query.get(k) ?? '';
-    form.referrer.value = document.referrer && !document.referrer.startsWith(location.origin) ? document.referrer : '';
-    form.email.value = form.email.value.trim();
-    const data = new URLSearchParams(new FormData(form));
+    for (const k of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'ref']) if (query.get(k)) data.set(k, query.get(k));
+    if (document.referrer && !document.referrer.startsWith(location.origin)) data.set('referrer', document.referrer);
     button.disabled = true;
     button.dataset.i18n = 'close.sending';
     button.textContent = t('close.sending');
     try {
-      const res = await fetch(form.getAttribute('action'), { method: 'POST', body: data });
+      const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
       if (!res.ok) throw new Error(String(res.status));
       form.reset();
       say('close.done');

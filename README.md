@@ -20,10 +20,10 @@ Then open http://localhost:4321. Add `?lang=pt-BR` or `?lang=es` to switch the l
 | `styles.css` | Design tokens and sections |
 | `404.html` | Not found page |
 | `assets/` | Video, poster, screenshot, favicon and social card |
-| `netlify.toml`, `build.sh` | Netlify build: copies the site files into `_site` and sets security and cache headers |
+| `CNAME`, `.nojekyll` | GitHub Pages: custom domain and plain static serving (no Jekyll) |
 
-The early access form is handled by Netlify Forms. Running locally, the form shows its error message because the local server does not accept the POST.
+The early access form posts to Formspree (the endpoint is the form's `action`).
 
 ## Deploy
 
-Every push to `main` deploys to Netlify.
+GitHub Pages serves the `main` branch at hypermonitor.net; every push to `main` goes live in a minute or two.
