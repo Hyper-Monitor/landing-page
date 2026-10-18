@@ -30,13 +30,15 @@
 
 /* C: centered and conventional, text on top and the video below */
 .hv--c { grid-template-rows: 72px auto auto auto; }
-.hv--c .t--intro { grid-column: 1 / -1; grid-row: 2; align-items: center; text-align: center; gap: 14px; padding: 56px 32px 40px; background: transparent; }
+.hv--c .t--intro { grid-column: 1 / -1; grid-row: 2; align-items: center; text-align: center; gap: 12px; padding: 36px 32px 28px; background: transparent; }
 .hv--c .intro__title { max-width: none; font-size: clamp(2.75rem, 1rem + 4vw, 5.5rem); }
 .hv--c .intro__punch, .hv--c .intro__sub { max-width: 40ch; }
 .hv--c .t--intro .intro__actions { justify-content: center; margin-top: 12px; }
-.hv--c .t--video { grid-column: 2 / 12; grid-row: 3; }
-.hv--c .t--dark { grid-column: 2 / 7; grid-row: 4; min-height: 0; }
-.hv--c .t--accent { grid-column: 7 / 12; grid-row: 4; min-height: 0; }
+/* The video takes what is left of the screen under the text, so the whole first view fits; the two claims match its width */
+.hv--c { --cw: min(calc(100vw - 2 * var(--edge)), max(520px, calc((100svh - 440px) * 1.6))); }
+.hv--c .t--video { grid-column: 1 / -1; grid-row: 3; justify-self: center; width: var(--cw); max-width: 100%; }
+.hv--c .t--dark { grid-column: 1 / 7; grid-row: 4; justify-self: end; width: calc(var(--cw) / 2 - var(--gap) / 2); max-width: 100%; min-height: 0; }
+.hv--c .t--accent { grid-column: 7 / 13; grid-row: 4; justify-self: start; width: calc(var(--cw) / 2 - var(--gap) / 2); max-width: 100%; min-height: 0; }
 
 @media (max-width: 1100px) {
   .hv, .hv--b, .hv--c { grid-template-rows: 64px auto auto; }
@@ -45,9 +47,9 @@
   .hv .t--intro { grid-column: 1 / 8; grid-row: 2; display: flex; padding: 28px; align-items: stretch; text-align: left; background: var(--paper); }
   .hv .t--intro .intro__actions { justify-content: flex-start; }
   .hv .intro__title { font-size: clamp(2.25rem, 1rem + 2.7vw, 4rem); max-width: 14ch; }
-  .hv .t--dark { grid-column: 8 / 13; grid-row: 2; min-height: 0; }
+  .hv .t--dark { grid-column: 8 / 13; grid-row: 2; min-height: 0; width: auto; justify-self: stretch; }
   .hv .t--accent { display: none; }
-  .hv .t--video { grid-column: 1 / -1; grid-row: 3; }
+  .hv .t--video { grid-column: 1 / -1; grid-row: 3; width: auto; justify-self: stretch; }
 }
 @media (max-width: 760px) {
   .hv, .hv--b, .hv--c { grid-template-rows: 56px auto auto auto; }
