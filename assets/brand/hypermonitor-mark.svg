@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Hypermonitor">
+  <!-- Símbolo: três barras do logotipo em blocos (tinta, navy, verde), alturas 0.66, 1 e 0.5 -->
+  <rect width="64" height="64" rx="14" fill="#ebe5e3"/>
+  <rect x="10" y="24" width="12" height="30" rx="3" fill="#2b2622"/>
+  <rect x="26" y="10" width="12" height="44" rx="3" fill="#294c9e"/>
+  <rect x="42" y="31" width="12" height="23" rx="3" fill="#0c6f3d"/>
+</svg>

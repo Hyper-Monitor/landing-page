@@ -1,0 +1,5 @@
+# Internal notes, brand plans, deploy steps and production tools: kept locally, never published.
+internal/
+.taste-skill/
+.DS_Store
+_site/
