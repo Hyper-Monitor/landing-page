@@ -278,8 +278,11 @@ main > section { padding: var(--section) var(--side) 0; }
 [data-ui] .pick.on::after { left: 17px; }
 [data-ui] .tag { padding: 1px 6px; border-radius: 4px; background: rgba(122, 162, 255, 0.16); color: #a9c3ff; font-size: 11px; font-weight: 500; font-family: var(--sans); }
 [data-ui] .picks__done { margin-top: 10px; padding: 8px 12px; border-radius: 6px; background: rgba(255, 255, 255, 0.92); color: var(--accent); font-size: 14px; font-weight: 600; text-align: center; }
-.nohost { display: flex; flex-wrap: wrap; gap: 12px 36px; margin-top: var(--gap); padding: 24px 28px; border-radius: var(--radius); background: var(--paper); }
-.nohost li { font-size: var(--step-h3); font-weight: 500; letter-spacing: -0.025em; }
+/* What the setup spares you: one dark band in the same three columns as the steps above it */
+.nohost { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); margin-top: 28px; padding: 28px; border-radius: var(--radius); background: var(--night); color: var(--night-ink); }
+.nohost li { display: grid; align-content: start; gap: 6px; padding-right: 20px; }
+.nohost strong { font-size: var(--step-h3); font-weight: 500; line-height: 1.15; letter-spacing: -0.025em; }
+.nohost span { font-size: 16px; line-height: 1.45; color: #b9c2d6; }
 
 /* ---------- Pricing ---------- */
 .pricing__head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 40px; margin-bottom: 28px; padding: 0 14px; }
@@ -431,8 +434,8 @@ main > section { padding: var(--section) var(--side) 0; }
 
   .steps { grid-template-columns: 1fr; gap: 20px; }
   .step__art { height: auto; min-height: 220px; }
-  .nohost { gap: 10px 24px; padding: 20px; }
-  .nohost li { font-size: 19px; }
+  .nohost { grid-template-columns: 1fr; gap: 18px; padding: 22px 20px; }
+  .nohost strong { font-size: 20px; }
 
   .plan--early, .plan--after { grid-column: 1 / -1; padding: 22px; }
   .plan .btn { align-self: stretch; }
