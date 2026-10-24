@@ -36,9 +36,15 @@
 <a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
 
 <header class="board board--hero" id="top">
-  <a class="t t--logo" href="#top" aria-label="Hypermonitor">
-    <span class="blocks blocks--mini" aria-hidden="true" translate="no"><span style="--h:.74">h</span><span style="--h:.92">y</span><span style="--h:.66">p</span><span style="--h:1">e</span><span style="--h:.8">r</span><span style="--h:.7">m</span><span style="--h:.96">o</span><span style="--h:.62">n</span><span style="--h:.86">i</span><span style="--h:.76">t</span><span style="--h:1">o</span><span style="--h:.68">r</span></span>
-  </a>
+  <div class="t t--logo">
+    <div class="blocks blocks--nav" data-tip-side="below" id="hero-blocks" role="group" aria-label="Hypermonitor" translate="no">
+      <button type="button" style="--i:0;--h:.74" data-tip="0">h</button><button type="button" style="--i:1;--h:.92" data-tip="1">y</button><button type="button" style="--i:2;--h:.66" data-tip="2">p</button><button type="button" style="--i:3;--h:1" data-tip="3">e</button><button type="button" style="--i:4;--h:.8" data-tip="4">r</button><button type="button" style="--i:5;--h:.7" data-tip="5">m</button><button type="button" style="--i:6;--h:.96" data-tip="6">o</button><button type="button" style="--i:7;--h:.62" data-tip="7">n</button><button type="button" style="--i:8;--h:.86" data-tip="8">i</button><button type="button" style="--i:9;--h:.76" data-tip="9">t</button><button type="button" style="--i:10;--h:1" data-tip="10">o</button><button type="button" style="--i:11;--h:.68" data-tip="11">r</button>
+    </div>
+    <div class="tip" id="tip" role="status" aria-live="polite" hidden>
+      <p class="tip__text" id="tip-text"></p>
+      <a class="tip__link" href="#start" data-i18n="cta.start">Start free</a>
+    </div>
+  </div>
   <nav class="t t--nav" aria-label="Main" data-i18n-attr="aria-label:nav.label">
     <a href="#features" data-i18n="nav.product">Product</a>
     <a href="#diagnosis" data-i18n="nav.diagnosis">Diagnosis</a>
@@ -57,15 +63,6 @@
   </label>
   <a class="t t--action" href="#start" data-i18n="cta.start">Start free</a>
 
-  <div class="t t--mark">
-    <div class="blocks blocks--hero" id="hero-blocks" role="group" aria-label="Hypermonitor" translate="no">
-      <button type="button" style="--i:0;--h:.74" data-tip="0">h</button><button type="button" style="--i:1;--h:.92" data-tip="1">y</button><button type="button" style="--i:2;--h:.66" data-tip="2">p</button><button type="button" style="--i:3;--h:1" data-tip="3">e</button><button type="button" style="--i:4;--h:.8" data-tip="4">r</button><button type="button" style="--i:5;--h:.7" data-tip="5">m</button><button type="button" style="--i:6;--h:.96" data-tip="6">o</button><button type="button" style="--i:7;--h:.62" data-tip="7">n</button><button type="button" style="--i:8;--h:.86" data-tip="8">i</button><button type="button" style="--i:9;--h:.76" data-tip="9">t</button><button type="button" style="--i:10;--h:1" data-tip="10">o</button><button type="button" style="--i:11;--h:.68" data-tip="11">r</button>
-    </div>
-    <div class="tip" id="tip" role="status" aria-live="polite" hidden>
-      <p class="tip__text" id="tip-text"></p>
-      <a class="tip__link" href="#start" data-i18n="cta.start">Start free</a>
-    </div>
-  </div>
 
   <div class="t t--intro">
     <h1 class="intro__title" data-i18n="hero.title">Smart monitoring</h1>
