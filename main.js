@@ -57,9 +57,9 @@ if (blocks && tip) {
   tip.addEventListener('mouseenter', () => clearTimeout(hideTimer));
   tip.addEventListener('mouseleave', () => hideTip());
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideTip(0); });
-  // Uma mensagem aparece sozinha depois que as barras sobem, para mostrar que as colunas respondem
-  const covers = blocks.dataset.tipSide === 'below' && window.matchMedia('(max-width: 760px)').matches;
-  if (!covers) setTimeout(() => { if (!tipFor) { showTip(blocks.querySelectorAll('button')[3]); hideTip(3200); } }, reduced ? 400 : 1700);
+  // Uma mensagem aparece sozinha depois que as barras sobem, para mostrar que as colunas respondem; com o logo na
+  // barra de cima ela abriria por cima do título, então só aparece quando alguém passa, foca ou toca numa coluna
+  if (blocks.dataset.tipSide !== 'below') setTimeout(() => { if (!tipFor) { showTip(blocks.querySelectorAll('button')[3]); hideTip(3200); } }, reduced ? 400 : 1700);
 }
 
 /* ---------- Subtitle: the highlighted word cycles through what Hypermonitor watches ---------- */
